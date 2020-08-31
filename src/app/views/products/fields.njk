@@ -1,0 +1,52 @@
+<div class="item">
+    <div>Categoria</div>
+    <div>
+        <select name="category_id">
+            {% for category in categories %}
+                <option value="{{category.id}}" {%if product.category_id== instructor.id %} selected="selected" {%endif%}>{{category.name}}</option>
+            {% endfor %}
+
+        </select>
+    </div>
+</div>
+
+<div class="item">
+    <div>Titulo</div>
+    <div>
+        <input type="text" name="name" id="" autocomplete="off" placeholder="Digite o titulo do anúncio" value="{{product.name}}" ">
+    </div>
+</div>
+
+<div class="item">
+    <div>Descrição</div>
+    <div>
+        <textarea name="description" id="" cols="30" rows="10">{{product.description}}</textarea>
+    </div>
+</div>
+
+{# CAMPO DE FOTO #}
+
+<div class="item">
+    <div>Valor</div>
+    <div>
+        <input type="text" name="price" id="" autocomplete="off" placeholder="Preço do produto" value="{{product.price}}">
+    </div>
+    {% if product.old_price %}
+        <input type="hidden" name="old_price" value="{{product.old_price}}">
+    {% endif %}
+</div>
+
+<div class="item">
+    <div>Quantidade</div>
+    <div>
+        <input type="number" name="quantity" autocomplete="off" placeholder="Estoque disponível" value="{{product.quantity}}" ">
+    </div>
+</div>
+<div class="item">
+    <div>Sexo</div>
+    <div>
+        <span><input type="radio" name="gender" id="" value="M" {% if instructor.gender=="M" %} checked="checked" {% endif %}>Masculino</span>
+        <span><input type="radio" name="gender" id="" value="F" {% if instructor.gender=="F" %} checked="checked" {% endif %}>Feminino</span>
+
+    </div>
+</div>
