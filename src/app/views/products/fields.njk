@@ -29,7 +29,7 @@
 <div class="item">
     <div>Valor</div>
     <div>
-        <input type="text" name="price" id="" autocomplete="off" placeholder="Preço do produto" value="{{product.price}}">
+        <input type="text" name="price" id="" autocomplete="off" placeholder="Preço do produto" value="{{product.price}}" onkeydown="Mask.apply(this, 'formatBRL')">
     </div>
     {% if product.old_price %}
         <input type="hidden" name="old_price" value="{{product.old_price}}">
@@ -42,11 +42,17 @@
         <input type="number" name="quantity" autocomplete="off" placeholder="Estoque disponível" value="{{product.quantity}}" ">
     </div>
 </div>
-<div class="item">
-    <div>Sexo</div>
-    <div>
-        <span><input type="radio" name="gender" id="" value="M" {% if instructor.gender=="M" %} checked="checked" {% endif %}>Masculino</span>
-        <span><input type="radio" name="gender" id="" value="F" {% if instructor.gender=="F" %} checked="checked" {% endif %}>Feminino</span>
 
+<div class="item">
+    <div>Disponível ?</div>
+    <div>
+        <span>
+            <input type="radio" name="status" value="1" {% if product.status == '1' %} checked="checked" {% endif %}>
+            Sim
+        </span>
+        <span>
+            <input type="radio" name="status" value="0" {% if product.status == '0' %} checked="checked" {% endif %}>
+            Não
+        </span>
     </div>
 </div>
